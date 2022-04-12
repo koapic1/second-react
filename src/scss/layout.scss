@@ -1,0 +1,135 @@
+@import "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+img {
+    vertical-align: top;
+}
+body {
+    font-family: "Nanum Gothic", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    color: #111;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, 0, transparent 5%) #333;
+}
+#header {
+    display: flex;
+    height: 50px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    h1 {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 700;
+        @include longShadow(#ccc, right, 30);
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
+#contents {
+    padding: 100px 0;
+    .container {
+        width: 1440px;
+        margin: auto;
+        .subTitle {
+            margin-bottom: 100px;
+            font-size: 32px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 400;
+            strong {
+                font-size: 32px;
+                font-weight: 900;
+            }
+        }
+        .movieList {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                display: flex;
+                width: calc(50% - 20px);
+                margin: 10px 10px 100px 10px;
+                padding: 30px;
+                background-color: #fff;
+                //padding-bottom: 0;
+                border-radius: 0 20px 0 20px;
+                a {
+                    display: flex;
+                    color: inherit;
+                    text-decoration: none;
+                    .imgBox {
+                        position: relative;
+                        margin-top: -100px;
+                        img {
+                            width: 200px;
+                            height: 300px;
+                            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+                            object-fit: cover;
+                        }
+                        .point {
+                            display: flex;
+                            width: 50px;
+                            height: 50px;
+                            overflow: hidden;
+                            position: absolute;
+                            bottom: 10px;
+                            left: 10px;
+                            color: #fff;
+                            background-color: rgb(5, 85, 198);
+                            border-radius: 100px;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 700;
+                            @include longShadow(darken(rgb(5, 85, 198), 10), right, 30);
+                        }
+                    }
+                    .info {
+                        margin-left: 30px;
+                        text-align: left;
+                        .titleBox {
+                            margin-bottom: 20px;
+                            h3 {
+                                font-size: 24px;
+                            }
+                            .date {
+                                margin-top: 10px;
+                                font-size: 14px;
+                                color: #999;
+                            }
+                        }
+                        .overview {
+                            @include multiEllipsis(1.25, 3);
+                        }
+                        .vote {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+#footer {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 50px;
+    justify-content: center;
+    .copyright {
+        padding: 10px 50px;
+        font-size: 14px;
+        text-transform: uppercase;
+        background-color: #fff;
+        border-radius: 100px;
+        strong {
+            font-weight: 800;
+        }
+    }
+}

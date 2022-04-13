@@ -21,6 +21,10 @@ function Header() {
                 <h1>
                     <Link to="/">{title}</Link>
                 </h1>
+                <div id="search">
+                    <input type="text" />
+                    <button>Search</button>
+                </div>
             </header>
             {/* <ul>
                 {list.map(function (item, idx) {

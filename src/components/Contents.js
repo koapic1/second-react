@@ -6,7 +6,7 @@ export default function Contents() {
     const [movies, setMovies] = useState([]);
     const [count, setCount] = useState(0);
     useEffect(function () {
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=57274e0fe9ddce4fff43739199888d09&language=ko-KR&page=1").then(function (res) {
+        axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=ko-KR&page=1`).then(function (res) {
             //console.log(res.data.results);
             setMovies(res.data.results);
         });

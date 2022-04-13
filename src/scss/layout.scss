@@ -29,17 +29,41 @@ body {
         @include longShadow(#ccc, right, 30);
         a {
             color: inherit;
-            text-decoration: none;
         }
     }
 }
+#search {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    input {
+        height: 36px;
+        padding: 10px;
+        min-width: 300px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.15);
+        outline: none;
+    }
+    button {
+        background: none;
+        border: none;
+        padding: 0 20px;
+        background-color: #333;
+        overflow: hidden;
+        color: #fff;
+        @include longShadow(darken(#333, 10), right, 20);
+        border-radius: 5px;
+    }
+}
 #contents {
-    padding: 100px 0;
+    padding: 70px 0 100px;
     .container {
         width: 1440px;
         margin: auto;
         .subTitle {
-            margin-bottom: 100px;
+            margin-bottom: 150px;
             font-size: 32px;
             color: #fff;
             text-transform: uppercase;
@@ -57,7 +81,9 @@ body {
                 width: calc(50% - 20px);
                 margin: 10px 10px 100px 10px;
                 padding: 30px;
-                background-color: #fff;
+                color: #fff;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+                background-color: rgba(100, 100, 100, 0.75);
                 //padding-bottom: 0;
                 border-radius: 0 20px 0 20px;
                 a {
@@ -67,6 +93,20 @@ body {
                     .imgBox {
                         position: relative;
                         margin-top: -100px;
+                        &::before {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 1);
+                            transition: all 0.25s ease;
+                        }
+                        &:hover:before {
+                            box-shadow: inset 0 0 5px 5px rgba(255, 255, 255, 1);
+                        }
                         img {
                             width: 200px;
                             height: 300px;
@@ -111,6 +151,111 @@ body {
                             margin-top: 20px;
                         }
                     }
+                }
+            }
+        }
+        .detailBox {
+            display: flex;
+            margin-top: -80px;
+            .imgBox {
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+                img {
+                    width: 400px;
+                    border: 10px solid #fff;
+                    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+                    border-radius: 0 50px 0 50px;
+                }
+            }
+            .info {
+                flex-grow: 1;
+                margin-left: 30px;
+                padding: 30px 50px;
+                text-align: left;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 50px 0 50px 0;
+
+                .titleBox {
+                    position: relative;
+                    margin-bottom: 20px;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #ccc;
+                    h3 {
+                        font-size: 32px;
+                    }
+                    .btnList {
+                        background: #111;
+                        color: #fff;
+                        outline: none;
+                        position: absolute;
+                        right: 20px;
+                        top: 10px;
+                        border-radius: 5px;
+                        border: none;
+                        padding: 10px 20px;
+                        cursor: pointer;
+                    }
+                }
+                .summary {
+                    dl {
+                        margin-bottom: 10px;
+                        padding-bottom: 10px;
+                        border-bottom: 1px dashed #ccc;
+                        dt {
+                            margin-bottom: 5px;
+                            color: #666;
+                        }
+                        dd {
+                            font-size: 18px;
+                            font-weight: 700;
+                            li {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .genreList {
+                        display: flex;
+                        li {
+                            list-style: none;
+                            &:first-child:before {
+                                display: none;
+                            }
+                            &:before {
+                                content: "/";
+                                display: inline-block;
+                                padding: 0 10px;
+                            }
+                        }
+                    }
+                }
+                .overview {
+                    dt {
+                        margin-bottom: 5px;
+                        color: #666;
+                    }
+                    dd {
+                        @include multiEllipsis(1.25, 4);
+                    }
+                }
+            }
+            .bg {
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-size: cover;
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, 0.5);
                 }
             }
         }

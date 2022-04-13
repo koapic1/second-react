@@ -10,11 +10,14 @@ export default function SearchResult() {
     const [movies, setMovies] = useState([]);
     const query = qs.parse(location.search, { ignoreQueryPrefix: true }).movie;
     console.log(query);
-    useEffect(function () {
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&language=ko-KR&page=1`).then(function (res) {
-            setMovies(res.data.results);
-        });
-    }, []);
+    useEffect(
+        function () {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${query}&language=ko-KR&page=1`).then(function (res) {
+                setMovies(res.data.results);
+            });
+        },
+        [query]
+    );
     return (
         <div id="contents" className="contents">
             <div className="container">

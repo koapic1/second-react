@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Movie({ info }) {
     console.log(info);
     //https://image.tmdb.org/t/p/w200
+    //id 값을 받아서
     return (
         <li>
             <Link to={`/detail/${info.id}`}>

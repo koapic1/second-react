@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
 function Header() {
     //const title = "Movie App";
@@ -21,10 +22,7 @@ function Header() {
                 <h1>
                     <Link to="/">{title}</Link>
                 </h1>
-                <div id="search">
-                    <input type="text" />
-                    <button>Search</button>
-                </div>
+                <Search />
             </header>
             {/* <ul>
                 {list.map(function (item, idx) {
